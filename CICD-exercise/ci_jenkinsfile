@@ -1,6 +1,12 @@
 
 node('master') {
-    stage('test stage') {
+  def app
+  stage('test stage') {
       println("test1") 
   }
+  
+  stage("Build Image") {
+    app = docker.build("orm/nodejs-jenkins")
+  }
+  
 }
