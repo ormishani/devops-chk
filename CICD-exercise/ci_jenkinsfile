@@ -11,7 +11,7 @@ node('master') {
   
   stage("Build Image") {
     dir("CICD-exercise/") {
-      app = docker.build("orm/nodejs-jenkins")
+      app = docker.build("localhost:5000/nodejs")
     }
   } 
   
