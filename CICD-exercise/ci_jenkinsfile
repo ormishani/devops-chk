@@ -10,9 +10,9 @@ node('master') {
         checkout scm    
   }  
   
-  
   stage("Build Image") {
-    app = docker.build("orm/nodejs-jenkins")
-  }
-  
+    dir("CICD-exercise/"){
+      app = docker.build("orm/nodejs-jenkins")
+    }
+  } 
 }
