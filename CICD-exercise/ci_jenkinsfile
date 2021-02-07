@@ -6,13 +6,18 @@ node('master') {
   }
   
   stage('Clone repository') {               
-
         checkout scm    
   }  
   
   stage("Build Image") {
-    dir("CICD-exercise/"){
+    dir("CICD-exercise/") {
       app = docker.build("orm/nodejs-jenkins")
     }
   } 
+  
+  stage('Push image') {
+    docker.withRegistry('localhost:5000') {                   
+      app.push("latest")        
+    }    
+  }
 }
