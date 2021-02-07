@@ -5,6 +5,12 @@ node('master') {
       println("test1") 
   }
   
+  stage('Clone repository') {               
+
+        checkout scm    
+  }  
+  
+  
   stage("Build Image") {
     app = docker.build("orm/nodejs-jenkins")
   }
