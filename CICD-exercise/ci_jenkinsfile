@@ -1,6 +1,6 @@
 
 node('master') {
     stage('test stage') {
-      println("test6") 
+      println("test1") 
   }
 }
